@@ -1,9 +1,13 @@
+using ActorsInCode.Presentation.Model.Options;
 using ActorsInCode.Presentation.Services.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 var service = builder.Services;
+var config = builder.Configuration;
+
+service.Configure<RedisConfiguration>(c => config.GetSection(nameof(RedisConfiguration)).Bind(c));
 service.AddScoped<IRedisRepository, RedisRepository>();
 
 
