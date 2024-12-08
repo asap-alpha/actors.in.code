@@ -1,5 +1,13 @@
 using ActorsInCode.Presentation.Model.Options;
 using ActorsInCode.Presentation.Services.Repository;
+using Serilog;
+
+Log.Logger = new LoggerConfiguration()
+    .WriteTo
+    .Console()
+    .CreateLogger();
+
+Log.Information("starting server.");
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,8 +15,15 @@ var builder = WebApplication.CreateBuilder(args);
 var service = builder.Services;
 var config = builder.Configuration;
 
+
+builder.Host.UseSerilog((context, loggerConfiguration) =>
+{
+    loggerConfiguration.WriteTo.Console();
+    loggerConfiguration.ReadFrom.Configuration(context.Configuration);
+});
 service.Configure<RedisConfiguration>(c => config.GetSection(nameof(RedisConfiguration)).Bind(c));
 service.AddScoped<IRedisRepository, RedisRepository>();
+
 
 
 builder.Services.AddControllers();
@@ -30,4 +45,4 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.Run();
+await app.RunAsync();
