@@ -1,4 +1,5 @@
-using ActorsInCode.Presentation.Services.Repository;
+using ActorsInCode.Presentation.Repositories;
+using ActorsInCode.Presentation.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ActorsInCode.Presentation.Controllers
@@ -7,40 +8,26 @@ namespace ActorsInCode.Presentation.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
-        private readonly IRedisRepository _redisRepository;
+        private readonly IWeatherForecastService _weatherForecastService;
         private readonly ILogger<WeatherForecastController> _logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger, IRedisRepository redisRepository)
+        public WeatherForecastController(IWeatherForecastService weatherForecastService, ILogger<WeatherForecastController> logger)
         {
+            _weatherForecastService = weatherForecastService;
             _logger = logger;
-            _redisRepository = redisRepository;
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
-        public  async Task<IEnumerable<WeatherForecast>> Get()
+        public async Task<IActionResult> Get()
         {
-            var weatherForecast = 
-             Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            var result = await _weatherForecastService.GetWeatherData();
+            if (!result.IsPersisted)
             {
-                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
-
-            var persistToRedis = await _redisRepository.Add(weatherForecast.ToList());
-
-            if (persistToRedis)
-            {
-                return weatherForecast;
+                _logger.LogInformation("Failed to persist weather forecast data to redis");
+                return BadRequest(result.IsPersisted);
             }
-
-            return new List<WeatherForecast>();
+            
+            return Ok(result);
         }
     }
 }

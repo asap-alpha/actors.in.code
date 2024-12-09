@@ -48,3 +48,13 @@ D:\Projects\ActorsInCode\ActorsInCode.Presentation\obj\Debug\net8.0\refint\Actor
 D:\Projects\ActorsInCode\ActorsInCode.Presentation\obj\Debug\net8.0\ActorsInCode.Presentation.pdb
 D:\Projects\ActorsInCode\ActorsInCode.Presentation\obj\Debug\net8.0\ActorsInCode.Presentation.genruntimeconfig.cache
 D:\Projects\ActorsInCode\ActorsInCode.Presentation\obj\Debug\net8.0\ref\ActorsInCode.Presentation.dll
+D:\Projects\ActorsInCode\ActorsInCode.Presentation\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+D:\Projects\ActorsInCode\ActorsInCode.Presentation\bin\Debug\net8.0\Serilog.dll
+D:\Projects\ActorsInCode\ActorsInCode.Presentation\bin\Debug\net8.0\Serilog.AspNetCore.dll
+D:\Projects\ActorsInCode\ActorsInCode.Presentation\bin\Debug\net8.0\Serilog.Extensions.Hosting.dll
+D:\Projects\ActorsInCode\ActorsInCode.Presentation\bin\Debug\net8.0\Serilog.Extensions.Logging.dll
+D:\Projects\ActorsInCode\ActorsInCode.Presentation\bin\Debug\net8.0\Serilog.Formatting.Compact.dll
+D:\Projects\ActorsInCode\ActorsInCode.Presentation\bin\Debug\net8.0\Serilog.Settings.Configuration.dll
+D:\Projects\ActorsInCode\ActorsInCode.Presentation\bin\Debug\net8.0\Serilog.Sinks.Console.dll
+D:\Projects\ActorsInCode\ActorsInCode.Presentation\bin\Debug\net8.0\Serilog.Sinks.Debug.dll
+D:\Projects\ActorsInCode\ActorsInCode.Presentation\bin\Debug\net8.0\Serilog.Sinks.File.dll
