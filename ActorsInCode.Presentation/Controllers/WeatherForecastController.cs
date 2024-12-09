@@ -1,4 +1,3 @@
-using ActorsInCode.Presentation.Repositories;
 using ActorsInCode.Presentation.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,7 +10,8 @@ namespace ActorsInCode.Presentation.Controllers
         private readonly IWeatherForecastService _weatherForecastService;
         private readonly ILogger<WeatherForecastController> _logger;
 
-        public WeatherForecastController(IWeatherForecastService weatherForecastService, ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(IWeatherForecastService weatherForecastService,
+            ILogger<WeatherForecastController> logger)
         {
             _weatherForecastService = weatherForecastService;
             _logger = logger;
@@ -24,10 +24,21 @@ namespace ActorsInCode.Presentation.Controllers
             if (!result.IsPersisted)
             {
                 _logger.LogInformation("Failed to persist weather forecast data to redis");
-                return BadRequest(result.IsPersisted);
+                return BadRequest(
+                    new
+                    {
+                        statusCode = 400,
+                        message = result.IsPersisted ? "successful" : "unsuccessful"
+                    }
+                );
             }
-            
-            return Ok(result);
+
+            return Ok(new
+            {
+                StatusCode = 200,
+                message = result.IsPersisted ? "successful" : "unsuccessful",
+                result
+            });
         }
     }
 }
