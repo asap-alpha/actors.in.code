@@ -1,4 +1,4 @@
-namespace ActorsInCode.Presentation.Services.Repository;
+namespace ActorsInCode.Presentation.Repositories;
 
 public interface IRedisRepository
 {

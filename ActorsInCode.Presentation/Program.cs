@@ -1,5 +1,6 @@
 using ActorsInCode.Presentation.Model.Options;
-using ActorsInCode.Presentation.Services.Repository;
+using ActorsInCode.Presentation.Repositories;
+using ActorsInCode.Presentation.Services;
 using Serilog;
 
 Log.Logger = new LoggerConfiguration()
@@ -22,7 +23,9 @@ builder.Host.UseSerilog((context, loggerConfiguration) =>
     loggerConfiguration.ReadFrom.Configuration(context.Configuration);
 });
 service.Configure<RedisConfiguration>(c => config.GetSection(nameof(RedisConfiguration)).Bind(c));
+service.AddScoped<IWeatherForecastService, WeatherForecastService>();
 service.AddScoped<IRedisRepository, RedisRepository>();
+
 
 
 

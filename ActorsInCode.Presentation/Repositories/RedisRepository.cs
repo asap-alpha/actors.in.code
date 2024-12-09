@@ -3,7 +3,7 @@ using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using StackExchange.Redis;
 
-namespace ActorsInCode.Presentation.Services.Repository;
+namespace ActorsInCode.Presentation.Repositories;
 
 public class RedisRepository : IRedisRepository
 {
@@ -13,17 +13,26 @@ public class RedisRepository : IRedisRepository
 
     public RedisRepository(IOptions<RedisConfiguration> redisConfiguration, ILogger<RedisRepository> logger)
     {
-        var redisConfig = redisConfiguration.Value;
-        var configurationOptions = new ConfigurationOptions
+        
+        try
         {
-            EndPoints = { redisConfig!.RedisInstance }
-        };
+            var redisConfig = redisConfiguration.Value;
+            var configurationOptions = new ConfigurationOptions
+            {
+                EndPoints = { redisConfig!.RedisInstance }
+            };
 
-        _redisTTl = redisConfig.Ttl;
-        var connect = ConnectionMultiplexer.Connect(configurationOptions);
+            _redisTTl = redisConfig.Ttl;
+            var connect = ConnectionMultiplexer.Connect(configurationOptions);
 
-        _logger = logger;
-        _database = connect.GetDatabase(redisConfig.RedisDb);
+            _logger = logger;
+            _database = connect.GetDatabase(redisConfig.RedisDb);
+        }
+        catch (Exception e)
+        {
+            _logger.LogDebug(e,"Unable to retrieve appsettings for redis instance!... {StackTrace}, {Message}", e.StackTrace, e.Message);
+            throw new ArgumentNullException(nameof(redisConfiguration), "Redis configuration is null!...");
+        }
     }
 
     public async Task<bool> Add(List<WeatherForecast> payloads)
