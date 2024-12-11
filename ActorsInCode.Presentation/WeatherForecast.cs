@@ -8,7 +8,13 @@ namespace ActorsInCode.Presentation
 
         public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
 
-        public string? Summary { get; set; }
+        public string Summary { get; set; }
+     public ExtraData ExtraData { get; set; }
+    }
+
+    public class ExtraData
+    {
+        public string RedisKey { get; set; }
         public bool Duplicated { get; set; }
     }
 }

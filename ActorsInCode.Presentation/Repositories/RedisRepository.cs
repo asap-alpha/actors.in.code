@@ -36,22 +36,24 @@ public class RedisRepository : IRedisRepository
         }
     }
 
-    public async Task<bool> Add(WeatherForecast payload)
+    public async Task<bool> Add(List<WeatherForecast> payloads)
     {
- 
-        var key = RedisConstant.Key.RedisKeys.Replace("{summary}", payload.Summary);
+        var result = false;
+        foreach (var payload in payloads)
+        {
+            var key = RedisConstant.Key.RedisKeys.Replace("{summary}", payload.Summary);
 
-        var serializePayload = JsonConvert.SerializeObject(payload);
+            var serializePayload = JsonConvert.SerializeObject(payload);
 
-        _logger.LogDebug("persisting payload {Payload} to redis \n with key {Key}", serializePayload, key);
+            _logger.LogDebug("persisting payload {Payload} to redis \n with key {Key}", serializePayload, key);
 
-        var result = await _database.StringSetAsync(key, serializePayload,
-            TimeSpan.FromMinutes(_redisTTl));
+            result = await _database.StringSetAsync(key, serializePayload,
+                TimeSpan.FromMinutes(_redisTTl));
 
-        _logger.LogInformation("payload was {Status} persisted to redis with key {Key}", result, key);
-        
+            _logger.LogInformation("payload was {Status} persisted to redis with key {Key}", result, key);
+        }
+
         return result;
-
     }
 
     public async Task<List<WeatherForecast>> IsKeyAlreadyExist(List<WeatherForecast> payloads)
@@ -64,12 +66,19 @@ public class RedisRepository : IRedisRepository
             var keyAlreadyExist = await _database.KeyExistsAsync(key);
             if (keyAlreadyExist)
             {
-                payload.Duplicated = true;
+                payload.ExtraData.Duplicated = true;
+                payload.ExtraData.RedisKey = key;
+                remainingPayload.Add(payload);
                 _logger.LogDebug("Key already exist {Key} \n with payload {Payload}", key, serializePayload);
             }
 
-            payload.Duplicated = false;
-            remainingPayload.Add(payload);
+            else
+            {
+                payload.ExtraData.Duplicated = false;
+                payload.ExtraData.RedisKey = key;
+                remainingPayload.Add(payload);
+                _logger.LogDebug("new payload got! {Payload} \n with key {Key}", serializePayload, key);
+            }
         }
 
         return remainingPayload;

@@ -10,7 +10,8 @@ public class WeatherForecastService : IWeatherForecastService
     private readonly ILogger<WeatherForecastService> _logger;
     private readonly IKafkaProducerService _kafkaProducerService;
 
-    public WeatherForecastService(IRedisRepository redisRepository, ILogger<WeatherForecastService> logger, IKafkaProducerService kafkaProducerService)
+    public WeatherForecastService(IRedisRepository redisRepository, ILogger<WeatherForecastService> logger,
+        IKafkaProducerService kafkaProducerService)
     {
         _redisRepository = redisRepository;
         _logger = logger;
@@ -19,6 +20,7 @@ public class WeatherForecastService : IWeatherForecastService
 
     public async Task<WeatherData> GetWeatherData()
     {
+        var sanitizePayload = new List<WeatherForecast>();
         var weatherForecastRangeData =
             Enumerable.Range(1, 5).Select(index => new WeatherForecast
                 {
@@ -28,17 +30,27 @@ public class WeatherForecastService : IWeatherForecastService
                 })
                 .ToArray();
 
-        _logger.LogDebug("Total {Count} generated weather forecast data {Data}", weatherForecastRangeData.Length,JsonConvert.SerializeObject(weatherForecastRangeData));
+        _logger.LogDebug("Total {Count} generated weather forecast data {Data}", weatherForecastRangeData.Length,
+            JsonConvert.SerializeObject(weatherForecastRangeData));
         //loop over the range data and check for unique
+        var remainingPayloads = await _redisRepository.IsKeyAlreadyExist(weatherForecastRangeData.ToList());
         //remove the already exist.
-        //persist only the unique ones to redis 
-        //and produce the unique ones.
         
-        var persistToRedis = await _redisRepository.Add(weatherForecastRangeData[0]);
+        foreach (var remainingPayload in remainingPayloads)
+        {
+            sanitizePayload = weatherForecastRangeData
+                .Where(payload => !remainingPayload.ExtraData.Duplicated || payload != remainingPayload
+                )
+                .ToList();
+        }
+
+        //persist only the unique ones to redis 
+        var persistToRedis = await _redisRepository.Add(sanitizePayload.ToList());
 
         if (persistToRedis)
         {
-            await _kafkaProducerService.KafkaProducer(weatherForecastRangeData.ToList());
+            //and produce the unique ones.
+            await _kafkaProducerService.KafkaProducer(sanitizePayload.ToList());
             return new WeatherData
             {
                 Data = weatherForecastRangeData.ToList(),
