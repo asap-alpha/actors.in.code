@@ -8,11 +8,13 @@ public class WeatherForecastService : IWeatherForecastService
 {
     private readonly IRedisRepository _redisRepository;
     private readonly ILogger<WeatherForecastService> _logger;
+    private readonly IKafkaProducerService _kafkaProducerService;
 
-    public WeatherForecastService(IRedisRepository redisRepository, ILogger<WeatherForecastService> logger)
+    public WeatherForecastService(IRedisRepository redisRepository, ILogger<WeatherForecastService> logger, IKafkaProducerService kafkaProducerService)
     {
         _redisRepository = redisRepository;
         _logger = logger;
+        _kafkaProducerService = kafkaProducerService;
     }
 
     public async Task<WeatherData> GetWeatherData()
@@ -31,6 +33,7 @@ public class WeatherForecastService : IWeatherForecastService
 
         if (persistToRedis)
         {
+            await _kafkaProducerService.KafkaProducer(weatherForecastRangeData.ToList());
             return new WeatherData
             {
                 Data = weatherForecastRangeData.ToList(),

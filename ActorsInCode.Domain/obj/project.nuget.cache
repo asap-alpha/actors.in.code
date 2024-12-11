@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "/qn4spTLuJ9C51eI9oyDiqAFB225JmHM2C92Ku5/40syzyCTHkUzg6sbEiuV6Dz/4N9fIHw1auM/uNy5DFG9Vg==",
+  "success": true,
+  "projectFilePath": "D:\\Projects\\ActorsInCode\\ActorsInCode.Domain\\ActorsInCode.Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ASAP\\.nuget\\packages\\confluent.kafka\\2.6.1\\confluent.kafka.2.6.1.nupkg.sha512",
+    "C:\\Users\\ASAP\\.nuget\\packages\\librdkafka.redist\\2.6.1\\librdkafka.redist.2.6.1.nupkg.sha512"
+  ],
+  "logs": []
+}
