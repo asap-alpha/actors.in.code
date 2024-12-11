@@ -34,8 +34,8 @@ public class WeatherForecastService : IWeatherForecastService
             JsonConvert.SerializeObject(weatherForecastRangeData));
         //loop over the range data and check for unique
         var remainingPayloads = await _redisRepository.IsKeyAlreadyExist(weatherForecastRangeData.ToList());
-        //remove the already exist.
         
+        //remove the already exist.
         foreach (var remainingPayload in remainingPayloads)
         {
             sanitizePayload = weatherForecastRangeData

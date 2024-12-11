@@ -26,7 +26,7 @@ public class KafkaProducerService:IKafkaProducerService
 
         foreach (var message in data)
         {
-
+            message.ExtraData = null;
             var payload = JsonConvert.SerializeObject(message);
             
             var deliveryReport = await producer.ProduceAsync(_kafkaProducerConfig.Topic, new Message<string, string>
@@ -35,7 +35,7 @@ public class KafkaProducerService:IKafkaProducerService
                 Value = payload
             });
             
-            _logger.LogInformation("delivery status {Status}", deliveryReport.Status);
+            _logger.LogDebug("delivery status {Status} for payload {Payload}", deliveryReport.Status, payload);
         }
  
     }

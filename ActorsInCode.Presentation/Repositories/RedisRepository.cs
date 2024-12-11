@@ -41,6 +41,7 @@ public class RedisRepository : IRedisRepository
         var result = false;
         foreach (var payload in payloads)
         {
+            payload.ExtraData = null;
             var key = RedisConstant.Key.RedisKeys.Replace("{summary}", payload.Summary);
 
             var serializePayload = JsonConvert.SerializeObject(payload);
