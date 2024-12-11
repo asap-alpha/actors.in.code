@@ -4,6 +4,6 @@ namespace ActorsInCode.Presentation.Services;
 
 public interface IWeatherForecastService
 {
-    public Task<WeatherData> GetWeatherData();
+     Task<WeatherData> GetWeatherData();
 }
 

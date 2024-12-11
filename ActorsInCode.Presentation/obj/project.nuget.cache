@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "uv5p7lrW6UcAirrB4BdEIK+J4nAQh54vhTAXwv6OWvGjL1uxi090RObxmin7HWFYn2eRxnVBwfxNNnhRqrtQcQ==",
+  "dgSpecHash": "01X1N4iv9vhIlbqeQWyF/EgEFkhPeCnOO2y+ESmETJ//yUMXhtcrIMN38YqFEUKdiW5+RF2QyTwo2MMvjEhNqg==",
   "success": true,
   "projectFilePath": "D:\\Projects\\ActorsInCode\\ActorsInCode.Presentation\\ActorsInCode.Presentation.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ASAP\\.nuget\\packages\\akka\\1.5.31\\akka.1.5.31.nupkg.sha512",
     "C:\\Users\\ASAP\\.nuget\\packages\\akka.analyzers\\0.2.5\\akka.analyzers.0.2.5.nupkg.sha512",
+    "C:\\Users\\ASAP\\.nuget\\packages\\confluent.kafka\\2.6.1\\confluent.kafka.2.6.1.nupkg.sha512",
+    "C:\\Users\\ASAP\\.nuget\\packages\\librdkafka.redist\\2.6.1\\librdkafka.redist.2.6.1.nupkg.sha512",
     "C:\\Users\\ASAP\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\ASAP\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\8.0.0\\microsoft.extensions.caching.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\ASAP\\.nuget\\packages\\microsoft.extensions.caching.stackexchangeredis\\8.0.1\\microsoft.extensions.caching.stackexchangeredis.8.0.1.nupkg.sha512",

@@ -23,10 +23,10 @@ builder.Host.UseSerilog((context, loggerConfiguration) =>
     loggerConfiguration.ReadFrom.Configuration(context.Configuration);
 });
 service.Configure<RedisConfiguration>(c => config.GetSection(nameof(RedisConfiguration)).Bind(c));
+service.Configure<KafkaProducerConfig>(c => config.GetSection(nameof(KafkaProducerConfig)).Bind(c));
 service.AddScoped<IWeatherForecastService, WeatherForecastService>();
 service.AddScoped<IRedisRepository, RedisRepository>();
-
-
+service.AddScoped<IKafkaProducerService, KafkaProducerService>();
 
 
 builder.Services.AddControllers();
