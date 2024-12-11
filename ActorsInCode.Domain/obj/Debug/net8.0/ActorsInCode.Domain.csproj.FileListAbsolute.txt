@@ -1,0 +1,13 @@
+D:\Projects\ActorsInCode\ActorsInCode.Domain\bin\Debug\net8.0\ActorsInCode.Domain.deps.json
+D:\Projects\ActorsInCode\ActorsInCode.Domain\bin\Debug\net8.0\ActorsInCode.Domain.dll
+D:\Projects\ActorsInCode\ActorsInCode.Domain\bin\Debug\net8.0\ActorsInCode.Domain.pdb
+D:\Projects\ActorsInCode\ActorsInCode.Domain\obj\Debug\net8.0\ActorsInCode.Domain.csproj.AssemblyReference.cache
+D:\Projects\ActorsInCode\ActorsInCode.Domain\obj\Debug\net8.0\ActorsInCode.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\ActorsInCode\ActorsInCode.Domain\obj\Debug\net8.0\ActorsInCode.Domain.AssemblyInfoInputs.cache
+D:\Projects\ActorsInCode\ActorsInCode.Domain\obj\Debug\net8.0\ActorsInCode.Domain.AssemblyInfo.cs
+D:\Projects\ActorsInCode\ActorsInCode.Domain\obj\Debug\net8.0\ActorsInCode.Domain.csproj.CoreCompileInputs.cache
+D:\Projects\ActorsInCode\ActorsInCode.Domain\obj\Debug\net8.0\ActorsInCode.Domain.sourcelink.json
+D:\Projects\ActorsInCode\ActorsInCode.Domain\obj\Debug\net8.0\ActorsInCode.Domain.dll
+D:\Projects\ActorsInCode\ActorsInCode.Domain\obj\Debug\net8.0\refint\ActorsInCode.Domain.dll
+D:\Projects\ActorsInCode\ActorsInCode.Domain\obj\Debug\net8.0\ActorsInCode.Domain.pdb
+D:\Projects\ActorsInCode\ActorsInCode.Domain\obj\Debug\net8.0\ref\ActorsInCode.Domain.dll

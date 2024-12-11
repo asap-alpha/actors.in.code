@@ -29,7 +29,12 @@ public class WeatherForecastService : IWeatherForecastService
                 .ToArray();
 
         _logger.LogDebug("Total generated weather forecast data {Data}", JsonConvert.SerializeObject(weatherForecastRangeData));
-        var persistToRedis = await _redisRepository.Add(weatherForecastRangeData.ToList());
+        //loop over the range data and check for unique
+        //remove the already exist.
+        //persist only the unique ones to redis 
+        //and produce the unique ones.
+        
+        var persistToRedis = await _redisRepository.Add(weatherForecastRangeData[0]);
 
         if (persistToRedis)
         {

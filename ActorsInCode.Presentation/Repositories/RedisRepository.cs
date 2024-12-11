@@ -35,7 +35,7 @@ public class RedisRepository : IRedisRepository
         }
     }
 
-    public async Task<bool> Add(List<WeatherForecast> payloads)
+    public async Task<bool> Add(WeatherForecast payloads)
     {
         var isSuccessful = false;
 
@@ -66,4 +66,14 @@ public class RedisRepository : IRedisRepository
 
         return isSuccessful;
     }
+
+    public async Task<bool> IsKeyAlreadyExist(WeatherForecast payload)
+    {
+        var key = $"weather:{payload.Summary}";
+        var keyAlreadyExist = await _database.KeyExistsAsync(key);
+        if (!keyAlreadyExist)
+        {
+            var serializePayload = JsonConvert.SerializeObject(payload);
+
+            _logger.LogDebug("persisting payload {Payload} to redis \n with key {Key}", serializePayload, key);    }
 }
