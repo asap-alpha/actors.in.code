@@ -28,7 +28,7 @@ public class WeatherForecastService : IWeatherForecastService
                 })
                 .ToArray();
 
-        _logger.LogDebug("Total generated weather forecast data {Data}", JsonConvert.SerializeObject(weatherForecastRangeData));
+        _logger.LogDebug("Total {Count} generated weather forecast data {Data}", weatherForecastRangeData.Length,JsonConvert.SerializeObject(weatherForecastRangeData));
         //loop over the range data and check for unique
         //remove the already exist.
         //persist only the unique ones to redis 

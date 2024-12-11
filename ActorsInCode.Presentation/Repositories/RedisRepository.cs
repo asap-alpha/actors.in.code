@@ -1,3 +1,4 @@
+using ActorsInCode.Domain.Constants;
 using ActorsInCode.Presentation.Model.Options;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
@@ -13,7 +14,6 @@ public class RedisRepository : IRedisRepository
 
     public RedisRepository(IOptions<RedisConfiguration> redisConfiguration, ILogger<RedisRepository> logger)
     {
-        
         try
         {
             var redisConfig = redisConfiguration.Value;
@@ -30,50 +30,48 @@ public class RedisRepository : IRedisRepository
         }
         catch (Exception e)
         {
-            _logger.LogDebug(e,"Unable to retrieve appsettings for redis instance!... {StackTrace}, {Message}", e.StackTrace, e.Message);
+            _logger.LogDebug(e, "Unable to retrieve appsettings for redis instance!... {StackTrace}, {Message}",
+                e.StackTrace, e.Message);
             throw new ArgumentNullException(nameof(redisConfiguration), "Redis configuration is null!...");
         }
     }
 
-    public async Task<bool> Add(WeatherForecast payloads)
+    public async Task<bool> Add(WeatherForecast payload)
     {
-        var isSuccessful = false;
+ 
+        var key = RedisConstant.Key.RedisKeys.Replace("{summary}", payload.Summary);
 
-        _logger.LogDebug("Total payloads received {Count}", payloads.Count);
-        foreach (var payload in payloads)
-        {
-            var key = $"weather:{payload.Summary}";
-            var keyAlreadyExist = await _database.KeyExistsAsync(key);
-            if (!keyAlreadyExist)
-            {
-                var serializePayload = JsonConvert.SerializeObject(payload);
+        var serializePayload = JsonConvert.SerializeObject(payload);
 
-                _logger.LogDebug("persisting payload {Payload} to redis \n with key {Key}", serializePayload, key);
+        _logger.LogDebug("persisting payload {Payload} to redis \n with key {Key}", serializePayload, key);
 
-                var result = await _database.StringSetAsync(key, serializePayload,
-                    TimeSpan.FromMinutes(_redisTTl));
+        var result = await _database.StringSetAsync(key, serializePayload,
+            TimeSpan.FromMinutes(_redisTTl));
 
-                if (result)
-                {
-                    isSuccessful = true;
-                }
-            }
+        _logger.LogInformation("payload was {Status} persisted to redis with key {Key}", result, key);
+        
+        return result;
 
-            _logger.LogInformation("payload was {Status} persisted to redis with key {Key}",
-                isSuccessful ? "successful" : "unsuccessful", key);
-        }
-
-
-        return isSuccessful;
     }
 
-    public async Task<bool> IsKeyAlreadyExist(WeatherForecast payload)
+    public async Task<List<WeatherForecast>> IsKeyAlreadyExist(List<WeatherForecast> payloads)
     {
-        var key = $"weather:{payload.Summary}";
-        var keyAlreadyExist = await _database.KeyExistsAsync(key);
-        if (!keyAlreadyExist)
+        var remainingPayload = new List<WeatherForecast>();
+        foreach (var payload in payloads)
         {
             var serializePayload = JsonConvert.SerializeObject(payload);
+            var key = RedisConstant.Key.RedisKeys.Replace("{summary}", payload.Summary);
+            var keyAlreadyExist = await _database.KeyExistsAsync(key);
+            if (keyAlreadyExist)
+            {
+                payload.Duplicated = true;
+                _logger.LogDebug("Key already exist {Key} \n with payload {Payload}", key, serializePayload);
+            }
 
-            _logger.LogDebug("persisting payload {Payload} to redis \n with key {Key}", serializePayload, key);    }
+            payload.Duplicated = false;
+            remainingPayload.Add(payload);
+        }
+
+        return remainingPayload;
+    }
 }
