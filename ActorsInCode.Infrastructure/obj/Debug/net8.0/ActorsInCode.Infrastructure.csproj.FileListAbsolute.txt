@@ -1,0 +1,16 @@
+D:\Projects\ActorsInCode\ActorsInCode.Infrastructure\bin\Debug\net8.0\ActorsInCode.Infrastructure.deps.json
+D:\Projects\ActorsInCode\ActorsInCode.Infrastructure\bin\Debug\net8.0\ActorsInCode.Infrastructure.dll
+D:\Projects\ActorsInCode\ActorsInCode.Infrastructure\bin\Debug\net8.0\ActorsInCode.Infrastructure.pdb
+D:\Projects\ActorsInCode\ActorsInCode.Infrastructure\bin\Debug\net8.0\ActorsInCode.Domain.dll
+D:\Projects\ActorsInCode\ActorsInCode.Infrastructure\bin\Debug\net8.0\ActorsInCode.Domain.pdb
+D:\Projects\ActorsInCode\ActorsInCode.Infrastructure\obj\Debug\net8.0\ActorsInCode.Infrastructure.csproj.AssemblyReference.cache
+D:\Projects\ActorsInCode\ActorsInCode.Infrastructure\obj\Debug\net8.0\ActorsInCode.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\ActorsInCode\ActorsInCode.Infrastructure\obj\Debug\net8.0\ActorsInCode.Infrastructure.AssemblyInfoInputs.cache
+D:\Projects\ActorsInCode\ActorsInCode.Infrastructure\obj\Debug\net8.0\ActorsInCode.Infrastructure.AssemblyInfo.cs
+D:\Projects\ActorsInCode\ActorsInCode.Infrastructure\obj\Debug\net8.0\ActorsInCode.Infrastructure.csproj.CoreCompileInputs.cache
+D:\Projects\ActorsInCode\ActorsInCode.Infrastructure\obj\Debug\net8.0\ActorsInCode.Infrastructure.sourcelink.json
+D:\Projects\ActorsInCode\ActorsInCode.Infrastructure\obj\Debug\net8.0\ActorsIn.81D74186.Up2Date
+D:\Projects\ActorsInCode\ActorsInCode.Infrastructure\obj\Debug\net8.0\ActorsInCode.Infrastructure.dll
+D:\Projects\ActorsInCode\ActorsInCode.Infrastructure\obj\Debug\net8.0\refint\ActorsInCode.Infrastructure.dll
+D:\Projects\ActorsInCode\ActorsInCode.Infrastructure\obj\Debug\net8.0\ActorsInCode.Infrastructure.pdb
+D:\Projects\ActorsInCode\ActorsInCode.Infrastructure\obj\Debug\net8.0\ref\ActorsInCode.Infrastructure.dll
