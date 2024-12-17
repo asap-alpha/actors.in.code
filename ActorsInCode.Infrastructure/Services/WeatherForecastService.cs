@@ -1,8 +1,14 @@
-using ActorsInCode.Presentation.Model;
-using ActorsInCode.Presentation.Repositories;
+using ActorsInCode.Domain.Constants;
+using ActorsInCode.Domain.Models;
+using ActorsInCode.Domain.Models.Request;
+using ActorsInCode.Domain.Models.Response;
+using ActorsInCode.Infrastructure.Repositories;
+using ActorsInCode.Presentation.Services;
+using Mapster;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
-namespace ActorsInCode.Presentation.Services;
+namespace ActorsInCode.Infrastructure.Services;
 
 public class WeatherForecastService : IWeatherForecastService
 {
@@ -20,9 +26,9 @@ public class WeatherForecastService : IWeatherForecastService
 
     public async Task<WeatherData> GetWeatherData()
     {
-        var sanitizePayload = new List<WeatherForecast>();
+        var sanitizePayload = new List<WeatherForecastRequest>();
         var weatherForecastRangeData =
-            Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            Enumerable.Range(1, 5).Select(index => new WeatherForecastRequest
                 {
                     Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
                     TemperatureC = Random.Shared.Next(-20, 55),
@@ -53,7 +59,7 @@ public class WeatherForecastService : IWeatherForecastService
             await _kafkaProducerService.KafkaProducer(sanitizePayload.ToList());
             return new WeatherData
             {
-                Data = weatherForecastRangeData.ToList(),
+                Data = weatherForecastRangeData.Adapt<List<WeatherForecastResponse>>(),
                 IsPersisted = true
             };
         }

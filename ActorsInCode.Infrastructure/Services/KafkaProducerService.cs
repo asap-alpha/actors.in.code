@@ -1,10 +1,12 @@
+using ActorsInCode.Domain.Models.Request;
+using ActorsInCode.Domain.Models.Response;
 using ActorsInCode.Domain.Options;
-using ActorsInCode.Presentation.Model.Options;
 using Confluent.Kafka;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 
-namespace ActorsInCode.Presentation.Services;
+namespace ActorsInCode.Infrastructure.Services;
 
 public class KafkaProducerService:IKafkaProducerService
 {
@@ -16,7 +18,7 @@ public class KafkaProducerService:IKafkaProducerService
         _logger = logger;
         _kafkaProducerConfig = kafkaProducerConfig.Value;
     }
-    public async Task KafkaProducer(List<WeatherForecast> data)
+    public async Task KafkaProducer(List<WeatherForecastRequest> data)
     {
         var config = new ProducerConfig
         {

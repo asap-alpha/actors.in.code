@@ -24,6 +24,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ActorsInCode.Domain\ActorsInCode.Domain.csproj" />
+    <ProjectReference Include="..\ActorsInCode.Infrastructure\ActorsInCode.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Model\" />
   </ItemGroup>
 
 </Project>

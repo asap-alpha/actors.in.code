@@ -1,10 +1,13 @@
 using ActorsInCode.Domain.Constants;
+using ActorsInCode.Domain.Models.Request;
+using ActorsInCode.Domain.Models.Response;
 using ActorsInCode.Presentation.Model.Options;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using StackExchange.Redis;
 
-namespace ActorsInCode.Presentation.Repositories;
+namespace ActorsInCode.Infrastructure.Repositories;
 
 public class RedisRepository : IRedisRepository
 {
@@ -36,7 +39,7 @@ public class RedisRepository : IRedisRepository
         }
     }
 
-    public async Task<bool> Add(List<WeatherForecast> payloads)
+    public async Task<bool> Add(List<WeatherForecastRequest> payloads)
     {
         var result = false;
         foreach (var payload in payloads)
@@ -57,9 +60,9 @@ public class RedisRepository : IRedisRepository
         return result;
     }
 
-    public async Task<List<WeatherForecast>> IsKeyAlreadyExist(List<WeatherForecast> payloads)
+    public async Task<List<WeatherForecastResponse>> IsKeyAlreadyExist(List<WeatherForecastRequest> payloads)
     {
-        var remainingPayload = new List<WeatherForecast>();
+        var remainingPayload = new List<WeatherForecastResponse>();
         foreach (var payload in payloads)
         {
             var serializePayload = JsonConvert.SerializeObject(payload);

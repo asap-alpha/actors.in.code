@@ -147,6 +147,27 @@
           }
         }
       },
+      "Mapster/7.4.0": {
+        "type": "package",
+        "dependencies": {
+          "Mapster.Core": "1.2.1"
+        },
+        "compile": {
+          "lib/net7.0/Mapster.dll": {}
+        },
+        "runtime": {
+          "lib/net7.0/Mapster.dll": {}
+        }
+      },
+      "Mapster.Core/1.2.1": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0/Mapster.Core.dll": {}
+        },
+        "runtime": {
+          "lib/net7.0/Mapster.Core.dll": {}
+        }
+      },
       "Microsoft.Extensions.ApiDescription.Server/6.0.5": {
         "type": "package",
         "build": {
@@ -975,6 +996,26 @@
         "runtime": {
           "bin/placeholder/ActorsInCode.Domain.dll": {}
         }
+      },
+      "ActorsInCode.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "ActorsInCode.Domain": "1.0.0",
+          "Akka": "1.5.31",
+          "Confluent.Kafka": "2.6.1",
+          "Mapster": "7.4.0",
+          "Microsoft.Extensions.Caching.StackExchangeRedis": "8.0.1",
+          "Newtonsoft.Json": "13.0.3",
+          "Serilog.AspNetCore": "8.0.3",
+          "StackExchange.Redis": "2.8.16"
+        },
+        "compile": {
+          "bin/placeholder/ActorsInCode.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ActorsInCode.Infrastructure.dll": {}
+        }
       }
     }
   },
@@ -1083,6 +1124,34 @@
         "runtimes/win-x86/native/vcruntime140.dll",
         "runtimes/win-x86/native/zlib1.dll",
         "runtimes/win-x86/native/zstd.dll"
+      ]
+    },
+    "Mapster/7.4.0": {
+      "sha512": "RYGoDqvS4WTKIq0HDyPBBVIj6N0mluOCXQ1Vk95JKseMHEsbCXSEGKSlP95oL+s42IXAXbqvHj7p0YaRBUcfqg==",
+      "type": "package",
+      "path": "mapster/7.4.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/net6.0/Mapster.dll",
+        "lib/net7.0/Mapster.dll",
+        "mapster.7.4.0.nupkg.sha512",
+        "mapster.nuspec"
+      ]
+    },
+    "Mapster.Core/1.2.1": {
+      "sha512": "11lokmfliBEMMmjeqxFGNpqGXq6tN96zFqpBmfYeahr4Ybk63oDmeJmOflsATjobYkX248g5Y62oQ2NNnZaeww==",
+      "type": "package",
+      "path": "mapster.core/1.2.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/net6.0/Mapster.Core.dll",
+        "lib/net7.0/Mapster.Core.dll",
+        "mapster.core.1.2.1.nupkg.sha512",
+        "mapster.core.nuspec"
       ]
     },
     "Microsoft.Extensions.ApiDescription.Server/6.0.5": {
@@ -2630,11 +2699,17 @@
       "type": "project",
       "path": "../ActorsInCode.Domain/ActorsInCode.Domain.csproj",
       "msbuildProject": "../ActorsInCode.Domain/ActorsInCode.Domain.csproj"
+    },
+    "ActorsInCode.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../ActorsInCode.Infrastructure/ActorsInCode.Infrastructure.csproj",
+      "msbuildProject": "../ActorsInCode.Infrastructure/ActorsInCode.Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
       "ActorsInCode.Domain >= 1.0.0",
+      "ActorsInCode.Infrastructure >= 1.0.0",
       "Akka >= 1.5.31",
       "Confluent.Kafka >= 2.6.1",
       "Microsoft.Extensions.Caching.StackExchangeRedis >= 8.0.1",
@@ -2678,6 +2753,9 @@
           "projectReferences": {
             "D:\\Projects\\ActorsInCode\\ActorsInCode.Domain\\ActorsInCode.Domain.csproj": {
               "projectPath": "D:\\Projects\\ActorsInCode\\ActorsInCode.Domain\\ActorsInCode.Domain.csproj"
+            },
+            "D:\\Projects\\ActorsInCode\\ActorsInCode.Infrastructure\\ActorsInCode.Infrastructure.csproj": {
+              "projectPath": "D:\\Projects\\ActorsInCode\\ActorsInCode.Infrastructure\\ActorsInCode.Infrastructure.csproj"
             }
           }
         }

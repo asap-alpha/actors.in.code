@@ -1,6 +1,6 @@
-namespace ActorsInCode.Presentation
+namespace ActorsInCode.Domain.Models.Response
 {
-    public class WeatherForecast
+    public class WeatherForecastResponse
     {
         public DateOnly Date { get; set; }
 

@@ -1,4 +1,4 @@
-namespace ActorsInCode.Presentation.Model;
+namespace ActorsInCode.Domain.Constants;
 
 public static class Constants
 {
