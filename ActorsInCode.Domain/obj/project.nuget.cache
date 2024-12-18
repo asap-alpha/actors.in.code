@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "/qn4spTLuJ9C51eI9oyDiqAFB225JmHM2C92Ku5/40syzyCTHkUzg6sbEiuV6Dz/4N9fIHw1auM/uNy5DFG9Vg==",
+  "dgSpecHash": "3PyzA2CRIVCUbCa00OE9+XuOpo1tCKjmeBvLixvKsFCE8iDs/N21AAEZCcnnRDdprESqgHtVsc6RDh3p0dabng==",
   "success": true,
   "projectFilePath": "D:\\Projects\\ActorsInCode\\ActorsInCode.Domain\\ActorsInCode.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ASAP\\.nuget\\packages\\confluent.kafka\\2.6.1\\confluent.kafka.2.6.1.nupkg.sha512",
-    "C:\\Users\\ASAP\\.nuget\\packages\\librdkafka.redist\\2.6.1\\librdkafka.redist.2.6.1.nupkg.sha512"
+    "C:\\Users\\ASAP\\.nuget\\packages\\librdkafka.redist\\2.6.1\\librdkafka.redist.2.6.1.nupkg.sha512",
+    "C:\\Users\\ASAP\\.nuget\\packages\\mongodb.bson\\3.1.0\\mongodb.bson.3.1.0.nupkg.sha512",
+    "C:\\Users\\ASAP\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
+    "C:\\Users\\ASAP\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }

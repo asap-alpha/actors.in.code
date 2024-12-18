@@ -2,6 +2,7 @@ using ActorsInCode.Domain.Constants;
 using ActorsInCode.Domain.Models.Request;
 using ActorsInCode.Domain.Models.Response;
 using ActorsInCode.Presentation.Model.Options;
+using Mapster;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
@@ -86,5 +87,19 @@ public class RedisRepository : IRedisRepository
         }
 
         return remainingPayload;
+    }
+
+    public async Task<List<WeatherForecastResponse>> ReadWeatherData(List<WeatherForecastRequest> data)
+    {
+        var availableData = new List<WeatherForecastResponse>();
+        foreach (var payload in data)
+        {
+            var key = RedisConstant.Key.RedisKeys.Replace("{summary}", payload.Summary);
+
+            var retrieveAllData = await _database.StringGetAsync(key);
+            availableData.Add(retrieveAllData.Adapt<WeatherForecastResponse>());
+        }
+
+        return availableData;
     }
 }

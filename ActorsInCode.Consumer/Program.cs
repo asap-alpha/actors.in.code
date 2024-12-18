@@ -7,6 +7,8 @@ var builder = Host.CreateDefaultBuilder(args)
     {
         service.AddHostedService<ActorsInCodeConsumer>();
         service.Configure<KafkaConsumerConfig>(context.Configuration.GetSection(nameof(KafkaConsumerConfig)));
+        service.RegisterServiceConfiguration(context.Configuration);
+        service.RegisterServiceCollection();
     })
     .UseSerilog((context,loggerConfiguration) =>
     {

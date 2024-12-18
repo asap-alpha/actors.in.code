@@ -8,4 +8,6 @@ public interface IRedisRepository
  Task<bool> Add(List<WeatherForecastRequest> payloads);
 
  Task<List<WeatherForecastResponse>> IsKeyAlreadyExist(List<WeatherForecastRequest> payloads);
+
+ Task<List<WeatherForecastResponse>> ReadWeatherData(List<WeatherForecastRequest> data);
 }

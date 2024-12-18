@@ -46,6 +46,10 @@
             "Confluent.Kafka": {
               "target": "Package",
               "version": "[2.6.1, )"
+            },
+            "MongoDB.Bson": {
+              "target": "Package",
+              "version": "[3.1.0, )"
             }
           },
           "imports": [
