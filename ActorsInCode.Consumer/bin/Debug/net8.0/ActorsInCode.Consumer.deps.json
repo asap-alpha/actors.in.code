@@ -10,6 +10,8 @@
         "dependencies": {
           "ActorsInCode.Domain": "1.0.0",
           "ActorsInCode.Infrastructure": "1.0.0",
+          "Akka": "1.5.33",
+          "Akka.Hosting": "1.5.33",
           "Microsoft.Extensions.Hosting": "8.0.0",
           "MongoDB.Bson": "3.1.0",
           "MongoDB.Driver": "3.1.0",
@@ -19,24 +21,64 @@
           "ActorsInCode.Consumer.dll": {}
         }
       },
-      "Akka/1.5.31": {
+      "Akka/1.5.33": {
         "dependencies": {
-          "Akka.Analyzers": "0.2.5",
-          "Microsoft.Extensions.ObjectPool": "6.0.35",
+          "Akka.Analyzers": "0.3.0",
+          "Microsoft.Extensions.ObjectPool": "6.0.36",
           "Newtonsoft.Json": "13.0.3",
-          "System.Collections.Immutable": "6.0.0",
+          "System.Collections.Immutable": "6.0.1",
           "System.Configuration.ConfigurationManager": "6.0.1",
           "System.Reflection.Emit": "4.7.0",
           "System.Threading.Channels": "6.0.0"
         },
         "runtime": {
           "lib/net6.0/Akka.dll": {
-            "assemblyVersion": "1.5.31.0",
-            "fileVersion": "1.5.31.0"
+            "assemblyVersion": "1.5.33.0",
+            "fileVersion": "1.5.33.0"
           }
         }
       },
-      "Akka.Analyzers/0.2.5": {},
+      "Akka.Analyzers/0.3.0": {},
+      "Akka.DependencyInjection/1.5.33": {
+        "dependencies": {
+          "Akka": "1.5.33",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/Akka.DependencyInjection.dll": {
+            "assemblyVersion": "1.5.33.0",
+            "fileVersion": "1.5.33.0"
+          }
+        }
+      },
+      "Akka.Hosting/1.5.33": {
+        "dependencies": {
+          "Akka.DependencyInjection": "1.5.33",
+          "Akka.Streams": "1.5.33",
+          "Microsoft.Extensions.Configuration.Abstractions": "8.0.0",
+          "Microsoft.Extensions.Hosting.Abstractions": "8.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Akka.Hosting.dll": {
+            "assemblyVersion": "1.5.33.0",
+            "fileVersion": "1.5.33.0"
+          }
+        }
+      },
+      "Akka.Streams/1.5.33": {
+        "dependencies": {
+          "Akka": "1.5.33",
+          "Google.Protobuf": "3.26.1",
+          "Reactive.Streams": "1.0.4"
+        },
+        "runtime": {
+          "lib/net6.0/Akka.Streams.dll": {
+            "assemblyVersion": "1.5.33.0",
+            "fileVersion": "1.5.33.0"
+          }
+        }
+      },
       "Confluent.Kafka/2.6.1": {
         "dependencies": {
           "librdkafka.redist": "2.6.1"
@@ -56,6 +98,14 @@
           "lib/net5.0/DnsClient.dll": {
             "assemblyVersion": "1.6.1.0",
             "fileVersion": "1.6.1.0"
+          }
+        }
+      },
+      "Google.Protobuf/3.26.1": {
+        "runtime": {
+          "lib/net5.0/Google.Protobuf.dll": {
+            "assemblyVersion": "3.26.1.0",
+            "fileVersion": "3.26.1.0"
           }
         }
       },
@@ -411,7 +461,7 @@
           "System.Text.Json": "8.0.0"
         }
       },
-      "Microsoft.Extensions.ObjectPool/6.0.35": {},
+      "Microsoft.Extensions.ObjectPool/6.0.36": {},
       "Microsoft.Extensions.Options/8.0.1": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0",
@@ -459,7 +509,7 @@
       "MongoDB.Bson/3.1.0": {
         "dependencies": {
           "System.Memory": "4.5.5",
-          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+          "System.Runtime.CompilerServices.Unsafe": "5.0.0"
         },
         "runtime": {
           "lib/net6.0/MongoDB.Bson.dll": {
@@ -501,6 +551,14 @@
           "lib/net5.0/Pipelines.Sockets.Unofficial.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "2.2.8.1080"
+          }
+        }
+      },
+      "Reactive.Streams/1.0.4": {
+        "runtime": {
+          "lib/netstandard2.0/Reactive.Streams.dll": {
+            "assemblyVersion": "1.0.4.0",
+            "fileVersion": "1.0.4.0"
           }
         }
       },
@@ -643,11 +701,7 @@
         }
       },
       "System.Buffers/4.5.1": {},
-      "System.Collections.Immutable/6.0.0": {
-        "dependencies": {
-          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
-        }
-      },
+      "System.Collections.Immutable/6.0.1": {},
       "System.Configuration.ConfigurationManager/6.0.1": {
         "dependencies": {
           "System.Security.Cryptography.ProtectedData": "6.0.0",
@@ -690,7 +744,7 @@
       "System.IO.Pipelines/5.0.1": {},
       "System.Memory/4.5.5": {},
       "System.Reflection.Emit/4.7.0": {},
-      "System.Runtime.CompilerServices.Unsafe/6.0.0": {},
+      "System.Runtime.CompilerServices.Unsafe/5.0.0": {},
       "System.Security.AccessControl/6.0.0": {},
       "System.Security.Cryptography.ProtectedData/6.0.0": {
         "runtime": {
@@ -770,7 +824,7 @@
       "ActorsInCode.Infrastructure/1.0.0": {
         "dependencies": {
           "ActorsInCode.Domain": "1.0.0",
-          "Akka": "1.5.31",
+          "Akka": "1.5.33",
           "Confluent.Kafka": "2.6.1",
           "Mapster": "7.4.0",
           "Microsoft.Extensions.Caching.StackExchangeRedis": "8.0.1",
@@ -795,19 +849,40 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Akka/1.5.31": {
+    "Akka/1.5.33": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-b2RsmBU8/YQrAgrzH5hlUJJU8v9feGw9O9H27M5IvwiP5XbQa6/iDEUPzp1XhR2Olu2h+UPCA/mF52KjaN7oWQ==",
-      "path": "akka/1.5.31",
-      "hashPath": "akka.1.5.31.nupkg.sha512"
+      "sha512": "sha512-Xw9d301CqAAdMqm3zSztiQn/tmVRI/mg8ZIc5zcetJYj0S3nVwbNuEsHoUqlQsq7F8CafiHnbuRNVYWvcaGbuA==",
+      "path": "akka/1.5.33",
+      "hashPath": "akka.1.5.33.nupkg.sha512"
     },
-    "Akka.Analyzers/0.2.5": {
+    "Akka.Analyzers/0.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-U6pT/cQLVZ/RNxa5Bw/cZlux1wlCacpJmpiAHlMPoIwbEph/5YFo18k4lXybEumgGCPNlNUA84goh9fXXhVaxQ==",
-      "path": "akka.analyzers/0.2.5",
-      "hashPath": "akka.analyzers.0.2.5.nupkg.sha512"
+      "sha512": "sha512-2P7bgtRo9L7Ic8G+CwzdM5envV2VNFuOL6vfUOHrCazKWQ6zK9aiX/C5oZHfu2dCJ3eVpQsHDgvc2U/P971liw==",
+      "path": "akka.analyzers/0.3.0",
+      "hashPath": "akka.analyzers.0.3.0.nupkg.sha512"
+    },
+    "Akka.DependencyInjection/1.5.33": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-M9rHhm7FwVeYcrjBoHNHCzYy5Om9K1UpZbzPBYz+wrSS0QNs5fy+NjrbItvqWeAkyqFwtKLcWHNw4rcJOjMMVg==",
+      "path": "akka.dependencyinjection/1.5.33",
+      "hashPath": "akka.dependencyinjection.1.5.33.nupkg.sha512"
+    },
+    "Akka.Hosting/1.5.33": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-F2eQ1QvCRFTwDcHt31mPlmpjEMZajEb6zL/Ab0At3Z67KWb8/Ep9IR2GlFXHNnfgSibah4ZBdi6fhlEWY+0CoA==",
+      "path": "akka.hosting/1.5.33",
+      "hashPath": "akka.hosting.1.5.33.nupkg.sha512"
+    },
+    "Akka.Streams/1.5.33": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-gfDTBXFgah7p/EefLWaIzvWEVER3GKhesIXShT8yrtkndf3VJtCsjDtibNMUHnzxVG9dli9QdLevk2uNs8fztQ==",
+      "path": "akka.streams/1.5.33",
+      "hashPath": "akka.streams.1.5.33.nupkg.sha512"
     },
     "Confluent.Kafka/2.6.1": {
       "type": "package",
@@ -822,6 +897,13 @@
       "sha512": "sha512-4H/f2uYJOZ+YObZjpY9ABrKZI+JNw3uizp6oMzTXwDw6F+2qIPhpRl/1t68O/6e98+vqNiYGu+lswmwdYUy3gg==",
       "path": "dnsclient/1.6.1",
       "hashPath": "dnsclient.1.6.1.nupkg.sha512"
+    },
+    "Google.Protobuf/3.26.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-CHZX8zXqhF/fdUtd+AYzew8T2HFkAoe5c7lbGxZY/qryAlQXckDvM5BfOJjXlMS7kyICqQTMszj4w1bX5uBJ/w==",
+      "path": "google.protobuf/3.26.1",
+      "hashPath": "google.protobuf.3.26.1.nupkg.sha512"
     },
     "librdkafka.redist/2.6.1": {
       "type": "package",
@@ -1033,12 +1115,12 @@
       "path": "microsoft.extensions.logging.eventsource/8.0.0",
       "hashPath": "microsoft.extensions.logging.eventsource.8.0.0.nupkg.sha512"
     },
-    "Microsoft.Extensions.ObjectPool/6.0.35": {
+    "Microsoft.Extensions.ObjectPool/6.0.36": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-fR+x2VNqCG9pmMlVlW6kGNV4M+6h+oq1FmghefqLZZxwFCjR+bf0K19F5CPrz+qLxe/pubkbr6OZABw4KVml7w==",
-      "path": "microsoft.extensions.objectpool/6.0.35",
-      "hashPath": "microsoft.extensions.objectpool.6.0.35.nupkg.sha512"
+      "sha512": "sha512-WHwL2Src2pAiLGEmzq6htW+jeKIkrifT3Q6nZROY6EG8EbSGli//XpAh9WpITRsTda3VVUBegvc2QdBWyNn+zg==",
+      "path": "microsoft.extensions.objectpool/6.0.36",
+      "hashPath": "microsoft.extensions.objectpool.6.0.36.nupkg.sha512"
     },
     "Microsoft.Extensions.Options/8.0.1": {
       "type": "package",
@@ -1102,6 +1184,13 @@
       "sha512": "sha512-zG2FApP5zxSx6OcdJQLbZDk2AVlN2BNQD6MorwIfV6gVj0RRxWPEp2LXAxqDGZqeNV1Zp0BNPcNaey/GXmTdvQ==",
       "path": "pipelines.sockets.unofficial/2.2.8",
       "hashPath": "pipelines.sockets.unofficial.2.2.8.nupkg.sha512"
+    },
+    "Reactive.Streams/1.0.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-k5lcLBmVAcc1OMGsLa5cxdzJazNx9haOb9GUINx+DulBqEvRAHCgxhDWcJjm44Pe633xwdKOOYGQhPSdj944IA==",
+      "path": "reactive.streams/1.0.4",
+      "hashPath": "reactive.streams.1.0.4.nupkg.sha512"
     },
     "Serilog/3.1.1": {
       "type": "package",
@@ -1194,12 +1283,12 @@
       "path": "system.buffers/4.5.1",
       "hashPath": "system.buffers.4.5.1.nupkg.sha512"
     },
-    "System.Collections.Immutable/6.0.0": {
+    "System.Collections.Immutable/6.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-l4zZJ1WU2hqpQQHXz1rvC3etVZN+2DLmQMO79FhOTZHMn8tDRr+WU287sbomD0BETlmKDn0ygUgVy9k5xkkJdA==",
-      "path": "system.collections.immutable/6.0.0",
-      "hashPath": "system.collections.immutable.6.0.0.nupkg.sha512"
+      "sha512": "sha512-Cc+SfP+jyCmA1TnRnDA7cRZy5jbLyWodfuUJKDJ+PJZBwWkv8szz+ztSCHAonqnL01DRaHaS2ptc4bYIEdgvWw==",
+      "path": "system.collections.immutable/6.0.1",
+      "hashPath": "system.collections.immutable.6.0.1.nupkg.sha512"
     },
     "System.Configuration.ConfigurationManager/6.0.1": {
       "type": "package",
@@ -1250,12 +1339,12 @@
       "path": "system.reflection.emit/4.7.0",
       "hashPath": "system.reflection.emit.4.7.0.nupkg.sha512"
     },
-    "System.Runtime.CompilerServices.Unsafe/6.0.0": {
+    "System.Runtime.CompilerServices.Unsafe/5.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-/iUeP3tq1S0XdNNoMz5C9twLSrM/TH+qElHkXWaPvuNOt+99G75NrV0OS2EqHx5wMN7popYjpc8oTjC1y16DLg==",
-      "path": "system.runtime.compilerservices.unsafe/6.0.0",
-      "hashPath": "system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+      "sha512": "sha512-ZD9TMpsmYJLrxbbmdvhwt9YEgG5WntEnZ/d1eH8JBX9LBp+Ju8BSBhUGbZMNVHHomWo2KVImJhTDl2hIgw/6MA==",
+      "path": "system.runtime.compilerservices.unsafe/5.0.0",
+      "hashPath": "system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512"
     },
     "System.Security.AccessControl/6.0.0": {
       "type": "package",

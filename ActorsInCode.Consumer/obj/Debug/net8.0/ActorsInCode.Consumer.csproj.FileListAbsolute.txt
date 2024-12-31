@@ -81,3 +81,8 @@ D:\Projects\ActorsInCode\ActorsInCode.Consumer\bin\Debug\net8.0\runtimes\unix\li
 D:\Projects\ActorsInCode\ActorsInCode.Consumer\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 D:\Projects\ActorsInCode\ActorsInCode.Consumer\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 D:\Projects\ActorsInCode\ActorsInCode.Consumer\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+D:\Projects\ActorsInCode\ActorsInCode.Consumer\bin\Debug\net8.0\Akka.DependencyInjection.dll
+D:\Projects\ActorsInCode\ActorsInCode.Consumer\bin\Debug\net8.0\Akka.Hosting.dll
+D:\Projects\ActorsInCode\ActorsInCode.Consumer\bin\Debug\net8.0\Akka.Streams.dll
+D:\Projects\ActorsInCode\ActorsInCode.Consumer\bin\Debug\net8.0\Google.Protobuf.dll
+D:\Projects\ActorsInCode\ActorsInCode.Consumer\bin\Debug\net8.0\Reactive.Streams.dll

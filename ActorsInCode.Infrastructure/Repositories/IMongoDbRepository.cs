@@ -4,5 +4,5 @@ namespace ActorsInCode.Infrastructure.Repositories;
 
 public interface IMongoDbRepository
 {
-    Task<bool> SaveResult(List<WeatherForecastResponse> payloads, CancellationToken token);
+    Task<bool> SaveResult(WeatherForecastResponse payload);
 }

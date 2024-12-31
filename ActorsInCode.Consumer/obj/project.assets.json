@@ -2,13 +2,13 @@
   "version": 3,
   "targets": {
     "net8.0": {
-      "Akka/1.5.31": {
+      "Akka/1.5.33": {
         "type": "package",
         "dependencies": {
-          "Akka.Analyzers": "0.2.5",
-          "Microsoft.Extensions.ObjectPool": "6.0.35",
+          "Akka.Analyzers": "0.3.0",
+          "Microsoft.Extensions.ObjectPool": "6.0.36",
           "Newtonsoft.Json": "13.0.1",
-          "System.Collections.Immutable": "6.0.0",
+          "System.Collections.Immutable": "6.0.1",
           "System.Configuration.ConfigurationManager": "6.0.1",
           "System.Reflection.Emit": "4.7.0",
           "System.Threading.Channels": "6.0.0"
@@ -24,8 +24,59 @@
           }
         }
       },
-      "Akka.Analyzers/0.2.5": {
+      "Akka.Analyzers/0.3.0": {
         "type": "package"
+      },
+      "Akka.DependencyInjection/1.5.33": {
+        "type": "package",
+        "dependencies": {
+          "Akka": "1.5.33",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/Akka.DependencyInjection.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Akka.DependencyInjection.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Akka.Hosting/1.5.33": {
+        "type": "package",
+        "dependencies": {
+          "Akka.DependencyInjection": "1.5.33",
+          "Akka.Streams": "1.5.33",
+          "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Hosting.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "6.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Akka.Hosting.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Akka.Hosting.dll": {}
+        }
+      },
+      "Akka.Streams/1.5.33": {
+        "type": "package",
+        "dependencies": {
+          "Akka": "1.5.33",
+          "Google.Protobuf": "3.26.1",
+          "Reactive.Streams": "1.0.4"
+        },
+        "compile": {
+          "lib/net6.0/Akka.Streams.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Akka.Streams.dll": {
+            "related": ".xml"
+          }
+        }
       },
       "Confluent.Kafka/2.6.1": {
         "type": "package",
@@ -56,6 +107,19 @@
         "runtime": {
           "lib/net5.0/DnsClient.dll": {
             "related": ".xml"
+          }
+        }
+      },
+      "Google.Protobuf/3.26.1": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/Google.Protobuf.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/Google.Protobuf.dll": {
+            "related": ".pdb;.xml"
           }
         }
       },
@@ -759,7 +823,7 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
-      "Microsoft.Extensions.ObjectPool/6.0.35": {
+      "Microsoft.Extensions.ObjectPool/6.0.36": {
         "type": "package",
         "compile": {
           "lib/net6.0/Microsoft.Extensions.ObjectPool.dll": {
@@ -940,6 +1004,19 @@
         },
         "runtime": {
           "lib/net5.0/Pipelines.Sockets.Unofficial.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Reactive.Streams/1.0.4": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Reactive.Streams.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Reactive.Streams.dll": {
             "related": ".xml"
           }
         }
@@ -1150,11 +1227,8 @@
           "lib/netcoreapp2.0/_._": {}
         }
       },
-      "System.Collections.Immutable/6.0.0": {
+      "System.Collections.Immutable/6.0.1": {
         "type": "package",
-        "dependencies": {
-          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
-        },
         "compile": {
           "lib/net6.0/System.Collections.Immutable.dll": {
             "related": ".xml"
@@ -1291,20 +1365,17 @@
           "lib/netcoreapp2.0/_._": {}
         }
       },
-      "System.Runtime.CompilerServices.Unsafe/6.0.0": {
+      "System.Runtime.CompilerServices.Unsafe/5.0.0": {
         "type": "package",
         "compile": {
-          "lib/net6.0/System.Runtime.CompilerServices.Unsafe.dll": {
+          "ref/netstandard2.1/System.Runtime.CompilerServices.Unsafe.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net6.0/System.Runtime.CompilerServices.Unsafe.dll": {
+          "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll": {
             "related": ".xml"
           }
-        },
-        "build": {
-          "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
       "System.Security.AccessControl/6.0.0": {
@@ -1521,15 +1592,15 @@
     }
   },
   "libraries": {
-    "Akka/1.5.31": {
-      "sha512": "b2RsmBU8/YQrAgrzH5hlUJJU8v9feGw9O9H27M5IvwiP5XbQa6/iDEUPzp1XhR2Olu2h+UPCA/mF52KjaN7oWQ==",
+    "Akka/1.5.33": {
+      "sha512": "Xw9d301CqAAdMqm3zSztiQn/tmVRI/mg8ZIc5zcetJYj0S3nVwbNuEsHoUqlQsq7F8CafiHnbuRNVYWvcaGbuA==",
       "type": "package",
-      "path": "akka/1.5.31",
+      "path": "akka/1.5.33",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "README.md",
-        "akka.1.5.31.nupkg.sha512",
+        "akka.1.5.33.nupkg.sha512",
         "akka.nuspec",
         "akkalogo.png",
         "lib/net6.0/Akka.dll",
@@ -1538,15 +1609,16 @@
         "lib/netstandard2.0/Akka.xml"
       ]
     },
-    "Akka.Analyzers/0.2.5": {
-      "sha512": "U6pT/cQLVZ/RNxa5Bw/cZlux1wlCacpJmpiAHlMPoIwbEph/5YFo18k4lXybEumgGCPNlNUA84goh9fXXhVaxQ==",
+    "Akka.Analyzers/0.3.0": {
+      "sha512": "2P7bgtRo9L7Ic8G+CwzdM5envV2VNFuOL6vfUOHrCazKWQ6zK9aiX/C5oZHfu2dCJ3eVpQsHDgvc2U/P971liw==",
       "type": "package",
-      "path": "akka.analyzers/0.2.5",
+      "path": "akka.analyzers/0.3.0",
+      "hasTools": true,
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "README.md",
-        "akka.analyzers.0.2.5.nupkg.sha512",
+        "akka.analyzers.0.3.0.nupkg.sha512",
         "akka.analyzers.nuspec",
         "analyzers/dotnet/roslyn3.11/cs/Akka.Analyzers.Fixes.dll",
         "analyzers/dotnet/roslyn3.11/cs/Akka.Analyzers.dll",
@@ -1556,7 +1628,57 @@
         "analyzers/dotnet/roslyn4.6/cs/Akka.Analyzers.dll",
         "analyzers/dotnet/roslyn4.8/cs/Akka.Analyzers.Fixes.dll",
         "analyzers/dotnet/roslyn4.8/cs/Akka.Analyzers.dll",
-        "logo.png"
+        "logo.png",
+        "tools/install.ps1",
+        "tools/uninstall.ps1"
+      ]
+    },
+    "Akka.DependencyInjection/1.5.33": {
+      "sha512": "M9rHhm7FwVeYcrjBoHNHCzYy5Om9K1UpZbzPBYz+wrSS0QNs5fy+NjrbItvqWeAkyqFwtKLcWHNw4rcJOjMMVg==",
+      "type": "package",
+      "path": "akka.dependencyinjection/1.5.33",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "akka.dependencyinjection.1.5.33.nupkg.sha512",
+        "akka.dependencyinjection.nuspec",
+        "akkalogo.png",
+        "lib/net6.0/Akka.DependencyInjection.dll",
+        "lib/net6.0/Akka.DependencyInjection.xml",
+        "lib/netstandard2.0/Akka.DependencyInjection.dll",
+        "lib/netstandard2.0/Akka.DependencyInjection.xml"
+      ]
+    },
+    "Akka.Hosting/1.5.33": {
+      "sha512": "F2eQ1QvCRFTwDcHt31mPlmpjEMZajEb6zL/Ab0At3Z67KWb8/Ep9IR2GlFXHNnfgSibah4ZBdi6fhlEWY+0CoA==",
+      "type": "package",
+      "path": "akka.hosting/1.5.33",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "akka.hosting.1.5.33.nupkg.sha512",
+        "akka.hosting.nuspec",
+        "akkalogo.png",
+        "lib/netstandard2.0/Akka.Hosting.dll"
+      ]
+    },
+    "Akka.Streams/1.5.33": {
+      "sha512": "gfDTBXFgah7p/EefLWaIzvWEVER3GKhesIXShT8yrtkndf3VJtCsjDtibNMUHnzxVG9dli9QdLevk2uNs8fztQ==",
+      "type": "package",
+      "path": "akka.streams/1.5.33",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "akka.streams.1.5.33.nupkg.sha512",
+        "akka.streams.nuspec",
+        "akkalogo.png",
+        "lib/net6.0/Akka.Streams.dll",
+        "lib/net6.0/Akka.Streams.xml",
+        "lib/netstandard2.0/Akka.Streams.dll",
+        "lib/netstandard2.0/Akka.Streams.xml"
       ]
     },
     "Confluent.Kafka/2.6.1": {
@@ -1602,6 +1724,29 @@
         "lib/netstandard2.0/DnsClient.xml",
         "lib/netstandard2.1/DnsClient.dll",
         "lib/netstandard2.1/DnsClient.xml"
+      ]
+    },
+    "Google.Protobuf/3.26.1": {
+      "sha512": "CHZX8zXqhF/fdUtd+AYzew8T2HFkAoe5c7lbGxZY/qryAlQXckDvM5BfOJjXlMS7kyICqQTMszj4w1bX5uBJ/w==",
+      "type": "package",
+      "path": "google.protobuf/3.26.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "google.protobuf.3.26.1.nupkg.sha512",
+        "google.protobuf.nuspec",
+        "lib/net45/Google.Protobuf.dll",
+        "lib/net45/Google.Protobuf.pdb",
+        "lib/net45/Google.Protobuf.xml",
+        "lib/net5.0/Google.Protobuf.dll",
+        "lib/net5.0/Google.Protobuf.pdb",
+        "lib/net5.0/Google.Protobuf.xml",
+        "lib/netstandard1.1/Google.Protobuf.dll",
+        "lib/netstandard1.1/Google.Protobuf.pdb",
+        "lib/netstandard1.1/Google.Protobuf.xml",
+        "lib/netstandard2.0/Google.Protobuf.dll",
+        "lib/netstandard2.0/Google.Protobuf.pdb",
+        "lib/netstandard2.0/Google.Protobuf.xml"
       ]
     },
     "librdkafka.redist/2.6.1": {
@@ -2541,10 +2686,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.ObjectPool/6.0.35": {
-      "sha512": "fR+x2VNqCG9pmMlVlW6kGNV4M+6h+oq1FmghefqLZZxwFCjR+bf0K19F5CPrz+qLxe/pubkbr6OZABw4KVml7w==",
+    "Microsoft.Extensions.ObjectPool/6.0.36": {
+      "sha512": "WHwL2Src2pAiLGEmzq6htW+jeKIkrifT3Q6nZROY6EG8EbSGli//XpAh9WpITRsTda3VVUBegvc2QdBWyNn+zg==",
       "type": "package",
-      "path": "microsoft.extensions.objectpool/6.0.35",
+      "path": "microsoft.extensions.objectpool/6.0.36",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2556,7 +2701,7 @@
         "lib/net6.0/Microsoft.Extensions.ObjectPool.xml",
         "lib/netstandard2.0/Microsoft.Extensions.ObjectPool.dll",
         "lib/netstandard2.0/Microsoft.Extensions.ObjectPool.xml",
-        "microsoft.extensions.objectpool.6.0.35.nupkg.sha512",
+        "microsoft.extensions.objectpool.6.0.36.nupkg.sha512",
         "microsoft.extensions.objectpool.nuspec"
       ]
     },
@@ -2829,6 +2974,20 @@
         "lib/netstandard2.1/Pipelines.Sockets.Unofficial.xml",
         "pipelines.sockets.unofficial.2.2.8.nupkg.sha512",
         "pipelines.sockets.unofficial.nuspec"
+      ]
+    },
+    "Reactive.Streams/1.0.4": {
+      "sha512": "k5lcLBmVAcc1OMGsLa5cxdzJazNx9haOb9GUINx+DulBqEvRAHCgxhDWcJjm44Pe633xwdKOOYGQhPSdj944IA==",
+      "type": "package",
+      "path": "reactive.streams/1.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/netstandard2.0/Reactive.Streams.dll",
+        "lib/netstandard2.0/Reactive.Streams.xml",
+        "reactive.streams.1.0.4.nupkg.sha512",
+        "reactive.streams.nuspec"
       ]
     },
     "Serilog/3.1.1": {
@@ -3141,10 +3300,10 @@
         "version.txt"
       ]
     },
-    "System.Collections.Immutable/6.0.0": {
-      "sha512": "l4zZJ1WU2hqpQQHXz1rvC3etVZN+2DLmQMO79FhOTZHMn8tDRr+WU287sbomD0BETlmKDn0ygUgVy9k5xkkJdA==",
+    "System.Collections.Immutable/6.0.1": {
+      "sha512": "Cc+SfP+jyCmA1TnRnDA7cRZy5jbLyWodfuUJKDJ+PJZBwWkv8szz+ztSCHAonqnL01DRaHaS2ptc4bYIEdgvWw==",
       "type": "package",
-      "path": "system.collections.immutable/6.0.0",
+      "path": "system.collections.immutable/6.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3159,7 +3318,7 @@
         "lib/net6.0/System.Collections.Immutable.xml",
         "lib/netstandard2.0/System.Collections.Immutable.dll",
         "lib/netstandard2.0/System.Collections.Immutable.xml",
-        "system.collections.immutable.6.0.0.nupkg.sha512",
+        "system.collections.immutable.6.0.1.nupkg.sha512",
         "system.collections.immutable.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -3399,29 +3558,36 @@
         "version.txt"
       ]
     },
-    "System.Runtime.CompilerServices.Unsafe/6.0.0": {
-      "sha512": "/iUeP3tq1S0XdNNoMz5C9twLSrM/TH+qElHkXWaPvuNOt+99G75NrV0OS2EqHx5wMN7popYjpc8oTjC1y16DLg==",
+    "System.Runtime.CompilerServices.Unsafe/5.0.0": {
+      "sha512": "ZD9TMpsmYJLrxbbmdvhwt9YEgG5WntEnZ/d1eH8JBX9LBp+Ju8BSBhUGbZMNVHHomWo2KVImJhTDl2hIgw/6MA==",
       "type": "package",
-      "path": "system.runtime.compilerservices.unsafe/6.0.0",
+      "path": "system.runtime.compilerservices.unsafe/5.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
-        "buildTransitive/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.targets",
-        "buildTransitive/netcoreapp3.1/_._",
-        "lib/net461/System.Runtime.CompilerServices.Unsafe.dll",
-        "lib/net461/System.Runtime.CompilerServices.Unsafe.xml",
-        "lib/net6.0/System.Runtime.CompilerServices.Unsafe.dll",
-        "lib/net6.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "lib/netcoreapp3.1/System.Runtime.CompilerServices.Unsafe.dll",
-        "lib/netcoreapp3.1/System.Runtime.CompilerServices.Unsafe.xml",
+        "lib/net45/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/net45/System.Runtime.CompilerServices.Unsafe.xml",
+        "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "lib/netstandard1.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/netstandard1.0/System.Runtime.CompilerServices.Unsafe.xml",
         "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
         "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+        "ref/net461/System.Runtime.CompilerServices.Unsafe.dll",
+        "ref/net461/System.Runtime.CompilerServices.Unsafe.xml",
+        "ref/netstandard1.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "ref/netstandard1.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "ref/netstandard2.1/System.Runtime.CompilerServices.Unsafe.dll",
+        "ref/netstandard2.1/System.Runtime.CompilerServices.Unsafe.xml",
+        "system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
         "system.runtime.compilerservices.unsafe.nuspec",
-        "useSharedDesignerContext.txt"
+        "useSharedDesignerContext.txt",
+        "version.txt"
       ]
     },
     "System.Security.AccessControl/6.0.0": {
@@ -3763,6 +3929,8 @@
     "net8.0": [
       "ActorsInCode.Domain >= 1.0.0",
       "ActorsInCode.Infrastructure >= 1.0.0",
+      "Akka >= 1.5.33",
+      "Akka.Hosting >= 1.5.33",
       "Microsoft.Extensions.Hosting >= 8.0.0",
       "MongoDB.Bson >= 3.1.0",
       "MongoDB.Driver >= 3.1.0",
@@ -3820,6 +3988,14 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+          "Akka": {
+            "target": "Package",
+            "version": "[1.5.33, )"
+          },
+          "Akka.Hosting": {
+            "target": "Package",
+            "version": "[1.5.33, )"
+          },
           "Microsoft.Extensions.Hosting": {
             "target": "Package",
             "version": "[8.0.0, )"

@@ -8,6 +8,7 @@ var builder = Host.CreateDefaultBuilder(args)
        
         service.RegisterServiceConfiguration(context.Configuration);
         service.RegisterServiceCollection();
+        service.AddActorSystems(c => context.Configuration.GetSection(nameof(ActorConfig)).Bind(c));
     })
     .UseSerilog((context,loggerConfiguration) =>
     {
